@@ -5,6 +5,6 @@ module Api
       @drivers = Driver.all
       render json: @drivers
     end
-  end
 
+  end
 end
