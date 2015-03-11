@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   namespace :api, {format: 'json' } do
     resources :drivers
   end
+  
+  # for seraching by place
+  get '/api/:place', to: 'api/drivers#search'
 
   resources :drivers
   root to: 'drivers#index'
