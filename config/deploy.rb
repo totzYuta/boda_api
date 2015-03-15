@@ -1,7 +1,7 @@
 # config valid only for current version of Capistrano
-lock '3.1.0'
+lock '3.4.0'
 
-set :application, 'boda'
+set :application, 'boda_api'
 set :repo_url, 'git@github.com:totzYuta/boda_api.git'
 
 # Default branch is :master
@@ -44,9 +44,9 @@ set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 # during deployment
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
-
 namespace :deploy do
- desc 'Restart application'
+
+  desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
       # Your restart mechanism here, for example:
@@ -67,4 +67,5 @@ namespace :deploy do
       # end
     end
   end
+
 end
