@@ -1,8 +1,10 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  
+
+=begin
   ask(:password, nil, echo: false)
   server 'bodaapivm.cloudapp.net', user: 'totz', password: 'VmApiBoda2015', roles: %w{web app db}
+=end
 
 
   # Code is not reloaded between requests.
