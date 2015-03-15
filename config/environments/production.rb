@@ -1,5 +1,9 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  
+  ask(:password, nil, echo: false)
+  server 'bodaapivm.cloudapp.net', user: 'totz', password: 'VmApiBoda2015', roles: %w{web app db}
+
 
   # Code is not reloaded between requests.
   config.cache_classes = true
