@@ -4,6 +4,16 @@ lock '3.4.0'
 set :application, 'boda_api'
 set :repo_url, 'git@github.com:totzYuta/boda_api.git'
 
+# describe the rbenv environment we are deploying into
+set :rbenv_type, :user
+set :rbenv_ruby, '2.0.0-p451'
+set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
+set :rbenv_map_bins, %w{rake gem bundle ruby rails}
+
+# dirs we want symlinked to the shared folder
+# during deployment
+set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
@@ -34,19 +44,9 @@ set :repo_url, 'git@github.com:totzYuta/boda_api.git'
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
-# describe the rbenv environment we are deploying into
-set :rbenv_type, :user
-set :rbenv_ruby, '2.0.0-p451'
-set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
-set :rbenv_map_bins, %w{rake gem bundle ruby rails}
-
-# dirs we want symlinked to the shared folder
-# during deployment
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
-
 namespace :deploy do
 
-  desc 'Restart application'
+ desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
       # Your restart mechanism here, for example:
