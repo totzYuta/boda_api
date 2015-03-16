@@ -14,6 +14,7 @@ set :deploy_to, "/home/#{fetch(:deploy_user)}/apps/#{fetch(:full_app_name)}"
 # set to production for Rails
 set :rails_env, :production
 
+Rake::Task["nginx:reload"].clear_actions
 
 
 # server-based syntax
