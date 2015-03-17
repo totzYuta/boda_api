@@ -7,6 +7,23 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
+    <nav>
+      <!-- user_signed_in? = Helper Method of devise returning User object -->
+      <% if user_signed_in? %>
+        <!-- *_pathはUserモデルを作成した時に、deviseにより自動で作成される=rake routesで確認できます -->
+        Logged in as <strong><%= current_user.email %></strong>
+        <%= link_to 'Change Profile', edit_user_registration_path %> | 
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to 'Sign in', new_user_registration_path %> | 
+        <%= link_to 'Log in', new_user_session_path %>
+      <% end %>
+    </nav>
+  </header>
+
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
 
 <%= yield %>
 
