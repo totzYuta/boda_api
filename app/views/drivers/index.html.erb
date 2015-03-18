@@ -9,3 +9,10 @@
     <p>- <%= fav_driver.name %> (<%= fav_driver.phone %>) <%= fav_driver.place %></p>
   <% end %>
 <% end %>
+
+# History
+<% if !@his_drivers.nil? %>
+  <% @his_drivers.each do |his_driver| %>
+    <p>- <%= his_driver.name %> (<%= his_driver.phone %>) <%= his_driver.place %></p>
+  <% end %>
+<% end %>
