@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150317170621) do
+ActiveRecord::Schema.define(version: 20150317235105) do
 
   create_table "drivers", force: true do |t|
     t.string   "name"
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 20150317170621) do
     t.datetime "updated_at"
     t.string   "place"
   end
+
+  create_table "favorites", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "driver_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "favorites", ["driver_id"], name: "index_favorites_on_driver_id"
+  add_index "favorites", ["user_id"], name: "index_favorites_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

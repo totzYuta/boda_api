@@ -5,6 +5,7 @@ class DriversController < ApplicationController
       redirect_to new_user_session_path
     end
     @drivers = Driver.all
+    @fav_drivers = current_user.drivers
   end
 
 end

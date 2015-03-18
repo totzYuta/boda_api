@@ -1,4 +1,8 @@
-FactoryGirl.define do  factory :user do
+FactoryGirl.define do  factory :favorite do
+    user nil
+driver nil
+  end
+  factory :user do
     
   end
 
