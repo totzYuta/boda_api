@@ -36,6 +36,11 @@ gem 'unicorn'
 # User Login
 gem 'devise'
 
+# Twitter Bootstrap
+gem 'therubyracer' # javascript runtime: to compile less
+gem 'less-rails' # for less files: bootstrap needs less
+gem 'twitter-bootstrap-rails'
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', group: :development
 

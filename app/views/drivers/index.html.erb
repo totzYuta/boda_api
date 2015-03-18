@@ -4,6 +4,8 @@
 <% end %>
 
 # Favorite
-<% @fav_drivers.each do |fav_driver| %>
-  <p>- <%= fav_driver.name %> (<%= fav_driver.phone %>) <%= fav_driver.place %></p>
+<% if !@fav_drivers.nil? %>
+  <% @fav_drivers.each do |fav_driver| %>
+    <p>- <%= fav_driver.name %> (<%= fav_driver.phone %>) <%= fav_driver.place %></p>
+  <% end %>
 <% end %>
