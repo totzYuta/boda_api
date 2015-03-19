@@ -1,18 +1,39 @@
-# Driver List
+<h2>Driver List</h2>
 <% @drivers.each do |driver| %>
   <p>- <%= driver.name %> (<%= driver.phone %>) <%= driver.place %></p>
+  <%= link_to "Call", driver_history_path(driver.id) %>
+  <% if driver.favorited_by? current_user %>
+    <%= link_to "Unfavorite", driver_favorite_path(driver.id), method: :delete %>
+  <% else %>
+    <%= link_to "Favorite", driver_favorite_path(driver.id), method: :post %>
+  <% end %>
+  <br>
 <% end %>
 
-# Favorite
+<h2>Favorite</h2>
 <% if !@fav_drivers.nil? %>
   <% @fav_drivers.each do |fav_driver| %>
     <p>- <%= fav_driver.name %> (<%= fav_driver.phone %>) <%= fav_driver.place %></p>
   <% end %>
+  <%= link_to "Call", driver_call_path(driver.id) %>
+  <% if driver.favorited_by? current_user %>
+    <%= link_to "Unfavorite", driver_favorite_path(driver.id), method: :delete %>
+  <% else %>
+    <%= link_to "Favorite", driver_favorite_path(driver.id), method: :post %>
+  <% end %>
+  <br>
 <% end %>
 
-# History
+<h2>History</h2>
 <% if !@his_drivers.nil? %>
   <% @his_drivers.each do |his_driver| %>
     <p>- <%= his_driver.name %> (<%= his_driver.phone %>) <%= his_driver.place %></p>
   <% end %>
+  <%= link_to "Call", driver_call_path(driver.id) %>
+  <% if driver.favorited_by? current_user %>
+    <%= link_to "Unfavorite", driver_favorite_path(driver.id), method: :delete %>
+  <% else %>
+    <%= link_to "Favorite", driver_favorite_path(driver.id), method: :post %>
+  <% end %>
+  <br>
 <% end %>

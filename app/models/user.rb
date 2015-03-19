@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   # Favorite
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   has_many :drivers,  through: :favorites
 
   # History

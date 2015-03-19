@@ -10,6 +10,22 @@ Rails.application.routes.draw do
   resources :drivers
   root to: 'drivers#index'
 
+  resources :drivers do
+    resource :favorite, :only => [:create, :destroy]
+  end
+
+  resources :users do
+    get :favorites, on: :member
+  end
+
+  resources :drivers do
+    resource :history, :only => [:create, :destroy]
+  end
+
+  resources :users do
+    get :histories, on: :member
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
