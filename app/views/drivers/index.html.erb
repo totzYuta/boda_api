@@ -27,13 +27,14 @@
 <h2>History</h2>
 <% if !@his_drivers.nil? %>
   <% @his_drivers.each do |driver| %>
-    <p>- <%= driver.name %> (<%= driver.phone %>) <%= driver.place %></p>
+    <p>- <%= driver.name %> (<%= driver.created_at.strftime("%H:%M %d %b.") %>)</p>
     <%= link_to "Call", driver_history_path(driver.id), method: :post %>
     <% if driver.favorited_by? current_user %>
       <%= link_to "Unfavorite", driver_favorite_path(driver.id), method: :delete %>
     <% else %>
       <%= link_to "Favorite", driver_favorite_path(driver.id), method: :post %>
     <% end %>
+    <%= link_to "Delete", driver_history_path(driver.id), method: :delete %>
     <br>
   <% end %>
 <% end %>

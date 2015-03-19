@@ -11,4 +11,10 @@ class HistoriesController < ApplicationController
     end
   end
 
+  def destroy
+    @history = current_user.histories.find_by!(driver_id: params[:driver_id])
+    @history.destroy
+    redirect_to root_url, notice: "History Deleted"
+  end
+
 end
