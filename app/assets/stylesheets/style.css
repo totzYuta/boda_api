@@ -1,0 +1,100 @@
+*{
+  margin:0;
+  padding:0;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.header{
+  background-color: black;
+  color: white;
+}
+
+
+/* header固定 */
+
+.navbar-fixed-top {
+  position: fixed;
+  top: 0;
+  right:0;
+  left: 0;
+  z-index: 1030;
+  margin-bottom: 0;
+}
+
+
+
+/* body関連 */
+.logo img{
+  height: 50px;
+  width: 50px;
+  margin-top: 10px;
+}
+
+.body{
+  background-color: black;
+}
+
+.drivers h1{
+  font-size: 30px;
+}
+
+.drivers h2{
+  font-size: 20px;
+}
+
+.drivers img{
+  width: 100px;
+  height: 100px;
+}
+
+
+
+
+
+/* 検索画面 */
+
+/* お気に入り画面 */
+
+/* ホーム画面 */
+.user-image img{
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+}
+
+
+
+
+/* footer関連 */
+/* footerを最下部に固定 */
+
+
+
+
+
+#home, #search, #favorite{
+  /* footerと同じ高さに設定 */
+  margin-bottom: 50px;
+  /* 一番下までスクロールした時の余白 */
+  padding-bottom: 0;
+}
+
+
+
+
+#footer {
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 0;
+}
+
+.nav{
+       background-color: #ffcc00;
+       color: black;
+}
