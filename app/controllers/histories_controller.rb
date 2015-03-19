@@ -2,9 +2,9 @@ class HistoriesController < ApplicationController
 
   def create
     @driver = Driver.find(params[:driver_id])
-    @favorite = current_user.favorites.build(driver: @driver)
+    @history = current_user.histories.build(driver: @driver)
 
-    if @favorite.save
+    if @history.save
       redirect_to root_url, notice: "Call Ends"
     else
       redirect_to root_url, alert: "Call Failed"
